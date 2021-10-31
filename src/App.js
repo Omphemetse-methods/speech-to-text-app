@@ -71,10 +71,18 @@ const Dictaphone = () => {
         </p>
         <p>Turn speech to text.</p>
 
-        <div className="spinner">
-          <div className="border-full"></div>
-          <div className="border-full"></div>
+        <div className="row examples pt-4">
+          <div className="col-3">
+            <div className="snippet">
+              <div className="stage flex space-x-4 items-center">
+                <div className="dot-elastic"></div>
+                <div className="dot-elastic"></div>
+                <div className="dot-elastic"></div>
+              </div>
+            </div>
+          </div>
         </div>
+
         <>
           <div className="row">
             <div className="spinner spinner-bounce-top"></div>
@@ -87,27 +95,27 @@ const Dictaphone = () => {
           <div className="flex justify-center space-x-4">
             <button
               type="button"
-              className="px-10 py-3 border-2 border-gray-100"
+              className="px-10 py-3 shadow border-2 border-blue-300 bg-blue-100"
               onClick={resetTranscript}
             >
               Reset
             </button>
             <button
               type="button"
-              className="px-10 py-3 border-2 border-gray-100"
+              className="px-10 py-3 border-2 border-green-300 shadow bg-green-100"
               onClick={listenContinuously}
             >
               Listen
             </button>
             <button
               type="button"
-              className="px-10 py-3 border-2 border-gray-100"
+              className="px-10 py-3 border-2 border-red-300 shadow bg-red-100"
               onClick={SpeechRecognition.stopListening}
             >
               Stop
             </button>
           </div>
-          <div className="border-t-2 space-y-12 p-8 bg-white shadow">
+          <div className="space-y-12 p-8 bg-white shadow-sm border-2 border-green-50">
             <section className="flex justify-end">
               <button
                 className="shadow-md border-2 border-purple-400 px-12 py-4"
