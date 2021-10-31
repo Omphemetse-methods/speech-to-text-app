@@ -71,6 +71,10 @@ const Dictaphone = () => {
         </p>
         <p>Turn speech to text.</p>
 
+        <div className="spinner">
+          <div className="border-full"></div>
+          <div className="border-full"></div>
+        </div>
         <>
           <div className="row">
             <div className="spinner spinner-bounce-top"></div>
