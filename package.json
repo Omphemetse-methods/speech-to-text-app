@@ -1,6 +1,9 @@
 {
   "name": "speech_recognition",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.x"
+  },
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.4.0",
