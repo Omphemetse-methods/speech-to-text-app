@@ -4,7 +4,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import "./App.css";
-import PopUp from "./components/PopUp";
+import PopUp from "src/components/PopUp";
 
 const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(
   process.env.REACT_APP_SPEECH_RECOGNTION_API_KEY
