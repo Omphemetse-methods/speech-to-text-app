@@ -102,7 +102,7 @@ const Dictaphone = () => {
             </button>
             <button
               type="button"
-              className="px-10 py-3 border-2 border-green-300 shadow bg-green-100"
+              className="px-10 py-3 border-2 border-green-300 shadow bg-green-200"
               onClick={listenContinuously}
             >
               Listen
