@@ -4,10 +4,14 @@ import { useEffect, useState } from 'react';
 export default function Page() {
 	//
 	const [recognition, setRecognition] = useState(null);
+	//
+	const [textCommand, setTextCommand] = useState('');
 
 	//
 	useEffect(() => {
-		const recognition = new window.webkitSpeechRecognition();
+		const recognition =
+			new window.webkitSpeechRecognition() ||
+			new window.SpeechRecognition();
 		//
 		recognition.continous = true;
 		recognition.interimResulst = false;
@@ -17,6 +21,10 @@ export default function Page() {
 		recognition.addEventListener('result', onSpeakReulsts);
 
 		setRecognition(recognition);
+
+		return () => {
+			if (recognition) recognition.stop();
+		};
 	}, []);
 
 	//
@@ -29,7 +37,11 @@ export default function Page() {
 	};
 
 	const onSpeakReulsts = (speechEvent: any) => {
-		console.log('on results');
+		const speech = speechEvent.results[0][0].transcript;
+
+		setTextCommand(speech);
+		console.log('I have been saying::', speech);
+
 		// get all transcripts: it can be muiltiple resulsts but the one with the highest onfidence makes sense
 		for (const res of speechEvent.results) {
 			console.log('text said:', res[0].transcript);
@@ -56,6 +68,9 @@ export default function Page() {
 			</button>
 
 			<button onClick={handleOnSpeakStop}>Stop</button>
+
+			<p>----------</p>
+			<p>{textCommand}</p>
 		</div>
 	);
 }
